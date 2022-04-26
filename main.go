@@ -7,10 +7,10 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "First CI demo, let's go!!!")
+	fmt.Fprintln(w, "Second CI demo, let's go!!!")
 }
 
 func main() {
 	http.HandleFunc("/", handler)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":8888", nil))
 }
