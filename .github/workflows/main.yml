@@ -24,7 +24,7 @@ jobs:
       id: Build-and-Push-Docker-Image
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
-        image: monk78anthony/gocitest
+        image: monk78anthony/anttest
         tags: latest
         registry: docker.io
         dockerfile: Dockerfile
