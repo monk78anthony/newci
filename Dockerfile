@@ -1,10 +1,11 @@
 FROM golang:1.14-alpine AS build
 
-WORKDIR /src/
-COPY main.go go.* /src/
-RUN CGO_ENABLED=0 go build -o /bin/demo
+RUN mkdir /src
+COPY . /src
+WORKDIR /src
+RUN CGO_ENABLED=0 go build -o /src/demo
 
 FROM scratch
-COPY --from=build /bin/demo /bin/demo
+COPY --from=build /src/demo /src/demo
 
-ENTRYPOINT ["/bin/demo"]
+ENTRYPOINT ["/src/demo"]
