@@ -1,0 +1,1 @@
+docker container run -d -p 8888:8888 monk78anthony/anttest:latest
