@@ -10,7 +10,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building docker image
-      - docker build -t awsb:latest .
+      - docker build -t newci:latest .
       - docker tag newci:latest $ECR/newci:latest
   post_build:
     on-failure: ABORT
