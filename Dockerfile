@@ -1,4 +1,4 @@
-FROM golang:1.14-alpine AS build
+FROM 767653220718.dkr.ecr.us-east-1.amazonaws.com/golang:1.18.2-alpine AS build
 
 RUN mkdir /src
 COPY . /src
