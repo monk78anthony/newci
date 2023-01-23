@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+  pre_build:
+    on-failure: ABORT
+    commands:
+      - echo Log into ECR
+      - $(aws ecr get-login --no-include-email --region $AWS_REGION)
+  build:
+    on-failure: ABORT
+    commands:
+      - echo Build started on `date`
+      - echo Building docker image
+      - docker build -t awsb:latest .
+      - docker tag newci:latest $ECR/newci:latest
+  post_build:
+    on-failure: ABORT
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing docker image
+      - docker push $ECR/newci:latest
