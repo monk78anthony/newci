@@ -1,0 +1,6 @@
+[
+    {
+        "name": "newci",
+        "imageUri": "767653220718.dkr.ecr.us-east-1.amazonaws.com/newci:latest"
+    }
+]
