@@ -1,11 +1,12 @@
-FROM golang:1.18.2-alpine AS build
+FROM golang:1.20.4-alpine3.17 AS build
 
-RUN mkdir /src
-COPY . /src
-WORKDIR /src
+RUN go env -w GOPROXY=direct
+RUN apk update && apk add --no-cache git
+RUN mkdir -p /go/src
+WORKDIR /go/src
+COPY . /go/src
+RUN go get "github.com/go-sql-driver/mysql"
+COPY . .
 RUN CGO_ENABLED=0 go build -o /src/demo
-
-FROM scratch
-COPY --from=build /src/demo /src/demo
 
 ENTRYPOINT ["/src/demo"]
