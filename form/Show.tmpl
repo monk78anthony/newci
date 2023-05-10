@@ -1,0 +1,9 @@
+{{ define "Show" }}
+  {{ template "Header" }}
+    {{ template "Menu"  }}
+    <h2> {{ .Project }} </h2>
+      <p>Hours: {{ .Hours }}</p>
+      <p>Name: {{ .Name }}</p>
+      <p>Project:  {{ .Project }}</p><br /> <a href="/edit?id={{ .Id }}">Edit</a></p>
+  {{ template "Footer" }}
+{{ end }}
